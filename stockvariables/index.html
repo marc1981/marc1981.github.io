@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Variables</title>
+  <link rel="stylesheet" href="myStyles.css">
+
+  <style type="text/css">
+  		
+  		#mainContent{
+  			color: white;
+  			text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7abcff+0,60abf8+44,4096ee+100;Blue+3D+%2314 */
+			background: #7abcff; /* Old browsers */
+			background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 ); /* IE6-9 */
+			padding: 100px;
+  		}
+
+  		#listContent{
+  			background: black;
+  			padding: 20px;
+  			border-radius: 20px;
+  		}
+
+  		ul{
+  			font-weight: bold;
+  			font-size: 150%;
+  		}	
+
+  </style>
+  
+  <script>
+ 	
+ 	//variables desclared in one line and then assigned in a separate line
+ 	let novartisStock;
+ 	let merckStock;
+
+ 	novartisStock = 90.64;
+ 	merckStock = 107.10;
+
+    //variables declared and assigned in single line
+    let teslaStock = 291.23;
+    let raytheonStock = 185.38;
+    let abbotLabsStock = 75.14;
+
+
+  </script>
+<!--[if lt IE 9]>
+<script src="dist/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+	<div id="mainContent">
+		<div id="listContent">
+			<h1 style="text-decoration: underline; font-weight: bolder;">Stock Listings&#42;</h1>
+			<ul style="list-style-type:square;">
+				<li>Novartis: &#36;
+					<script>
+						document.write(novartisStock);
+					</script>
+				</li>
+				<li>Merck: &#36;
+					<script>
+						document.write(merckStock);
+					</script>
+				</li>
+				<li>Tesla: &#36;
+					<script>
+						document.write(teslaStock);
+					</script>
+				</li>
+				<li>Raytheon: &#36;
+					<script>
+						document.write(raytheonStock);
+					</script>
+				</li>
+				<li>Abbot Labs: &#36;
+					<script>
+						document.write(abbotLabsStock);
+					</script>
+				</li>
+			</ul>
+			<br>
+			<h4>&#42;All prices reflect market closing value on 2/21/2019</h4>
+		</div>
+	</div>
+
+  <script>
+    document.write("My variable is " + myVariable);
+  </script>
+</body>
+</html>
