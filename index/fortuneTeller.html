@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Events</title>
+  <link rel="stylesheet" href="myStyles.css">
+  <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+  <style type="text/css">
+
+  	body{
+  		text-align: center;
+  		color: #CA76F7;
+  		font-size: 150%;
+  		font-family: 'Acme', sans-serif;
+  		text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  	}
+
+  	button {
+		  background-color: #CA76F7;
+		  border: none;
+		  color: white;
+		  padding: 15px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  font-weight: bolder;
+		  display: inline-block;
+		  font-size: 16px;
+	}
+
+  	#textDiv{
+  		padding: 120px 10px 10px 10px;
+  	}
+
+  	#circle {
+    width: 500px;
+    height: 500px;
+  	background-color: black;
+  	border-radius: 250px;
+  	margin: auto;
+	}
+
+  </style>
+
+  <script>
+
+	var numberOfChildren = (function() {
+	  var nocArray = ['2','1','4','12', '0', '5'];
+	  var count = -1;
+	  return function() {
+	    return nocArray[++count % nocArray.length];
+	  }
+	}());
+
+	var partnerName = (function() {
+	  var partnerArray = ['April','Carol','Steve','Jennifer', 'Megan', 'Rambo'];
+	  var count = -1;
+	  return function() {
+	    return partnerArray[++count % partnerArray.length];
+	  }
+	}());
+
+	var locationFunction = (function() {
+	  var locationArray = ['Dallas, TX','New Orleans, LA','Pasendena, CA','Las Vegas, NV', 'Seattle, WA', 'Vietnam'];
+	  var count = -1;
+	  return function() {
+	    return locationArray[++count % locationArray.length];
+	  }
+	}());
+
+	var jobTitle = (function() {
+	  var jobArray = ['Dentist','Saxaphone Player','Beach Bum','Card Shark', 'Slave to Microsoft', 'Mercenary'];
+	  var count = -1;
+	  return function() {
+	    return jobArray[++count % jobArray.length];
+	  }
+	}());
+
+  </script>
+
+</head>
+
+<body>
+	<div id="circle">
+		<div id="textDiv">			
+
+			<button onclick="document.getElementById('children').innerHTML = numberOfChildren();document.getElementById('partner').innerHTML = partnerName();document.getElementById('location').innerHTML = locationFunction();document.getElementById('job').innerHTML = jobTitle();">Click to Determine Your Fate</button>
+
+			<p>The number of children you will have is: <span id="children">?</span></p>
+			<p>Your partner's name will be: <span id="partner">?</span></p>
+			<p>You will live in: <span id="location">?</span></p>
+			<p>You will work as a: <span id="job">?</span></p>
+
+
+		</div>
+	</div>
+
+</body>
+</html>
