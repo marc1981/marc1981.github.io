@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>Number Check</title>
+  <style type="text/css">
+
+    body{
+      text-align: center;
+      color: #E50B0B;
+      font-size: 150%;
+      font-family: 'Acme', sans-serif;
+      text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+      background-color: #0B9BE2;
+    }
+
+    #entryButton {
+      background-color: #E50B0B;
+      text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bolder;
+      display: inline-block;
+      font-size: 16px;
+      box-shadow: 5px 5px 10px black;
+    }
+
+
+  </style>
+  <script type="text/javascript">
+
+    /* <![CDATA[ */
+    function checkTheNumber()
+    {
+      var num = document.getElementById("theNumber").value;
+      var msg = "";
+      
+      if (num >= 100){
+        msg = msg + "The number is greater than ";
+        msg = msg + "or equal to 100.";      
+      }else{
+        msg = msg + "The number you entered, " + num + ", is less than 100.";
+      }
+
+      alert(msg);
+    }
+
+    /* ]]> */
+
+  </script>
+</head>
+
+<body>
+
+<h3>Number Checker</h3>
+
+<form action="NumberCheck.html" method="post" name="theForm"
+      onsubmit="checkTheNumber(); return false;">
+  Enter a number: <input type="text" name="theNumber" id="theNumber" />
+
+  <br />
+  <br />
+
+  <input id="entryButton" type="submit" value="Check the Number" />
+
+</form>
+</body>
+</html>
