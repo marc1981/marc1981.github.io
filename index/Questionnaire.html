@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Questionnaire</title>
+		<style type="text/css">
+
+		    body{
+		      padding-top: 10px;
+		      text-align: center;
+		      color: white;
+		      font-size: 150%;
+		      font-family: 'Acme', sans-serif;
+		      text-shadow:-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+		      background-color: #445a65;
+		    }
+        
+		</style>
+</head>
+
+<body>
+
+  <script>
+
+    var inputArray = []; //Storage array.
+    var size = 5; //Maximum array size.
+
+    var promptArray = ["Please enter your full name.", "Please enter your favorite color.", "Please enter the state you live in.", "Please enter your age.", "Please enter the make and model of your first car."];
+
+    var answerArray = ["Hello ", "It's interesting that your favorite color is ", "I don't think I've been to ", "You sure don't look ", "I'm not sure if they still make a "];
+
+    for(var i=0; i<size; i++) {
+      //Receiving input from user.
+      inputArray[i] = prompt(promptArray[i]);
+      if(i == size - 1){
+        document.write("Here is an automated response to the information you supplied.<br/>" + 
+          "It is intented for entertainment purposes only.<br/><br/>");
+      }
+    }
+
+    //Print the array in the console for debugging purposes.
+    console.log(inputArray);
+
+    //Display formatted text.
+    for(var j=0; j<size; j++) {
+
+      document.write(answerArray[j] + inputArray[j] + ".<br/>");
+
+    }
+
+  </script>
+
+</body>
+</html>
