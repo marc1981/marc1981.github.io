@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas HTML</title>
+		<style type="text/css">
+
+
+			body{
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7b3d79+0,a955ad+50,9d4aa0+51,cb98ce+100 */
+				background: #7b3d79; /* Old browsers */
+				background: -moz-linear-gradient(-45deg, #7b3d79 0%, #a955ad 50%, #9d4aa0 51%, #cb98ce 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(-45deg, #7b3d79 0%,#a955ad 50%,#9d4aa0 51%,#cb98ce 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(135deg, #7b3d79 0%,#a955ad 50%,#9d4aa0 51%,#cb98ce 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b3d79', endColorstr='#cb98ce',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+				}
+			
+			canvas{
+				border: 1px solid black;
+				margin: auto;
+				text-align: center;
+				margin-bottom: 20px;
+				background-color: white;
+				box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+			}
+
+			iframe{
+				box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+			}
+
+			#canvasHolder{
+				margin: auto;
+				text-align: center;				
+			}
+
+			a:link{
+				color: white;
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+			}
+
+			a:visited{
+				color: white;
+			}			
+
+			a:hover {
+			  color: yellow;
+			}
+
+			#paragraph{
+				text-align: center;
+				margin: auto;
+				color: white;
+			    font-size: 150%;
+			    font-family: 'Acme', sans-serif;
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+			    margin: 20px;
+			}
+
+			#paragraph2{
+				text-align: center;
+				background-color: white;
+				margin: auto;
+				color: white;
+			    font-size: 150%;
+			    font-family: 'Acme', sans-serif;
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+			    width: 500px;
+			    height: 500px;
+			    margin: auto;
+			}
+
+			#paragraph3{
+				text-align: center;
+				margin: auto;
+				padding-bottom: 20px;
+				color: white;
+			    font-size: 150%;
+			    font-family: 'Acme', sans-serif;
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+			    margin: auto;
+			}
+
+			#paragraph4{
+				text-align: center;
+				margin: auto;
+				padding-bottom: 20px;
+				color: white;
+			    font-size: 150%;
+			    font-family: 'Acme', sans-serif;
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+			    margin: auto;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<div id="canvasHolder">
+			<canvas id="canvasOne"></canvas>
+			<canvas id="canvasTwo"></canvas>
+		</div>
+
+		<script type="text/javascript">
+
+			var canvasOne = document.getElementById('canvasOne');
+			var canvasTwo = document.getElementById('canvasTwo');
+
+			var hyperLinkText = document.createElement('div');
+				hyperLinkText.innerHTML = '<a href="https://marc1981.github.io/index">Link to my index page</a><br><br>Or Preview it in the box below:<br>';
+				hyperLinkText.setAttribute("id", "paragraph");
+			
+			var websiteImage = document.createElement('div');
+				websiteImage.innerHTML = '<iframe src="https://marc1981.github.io/index" width="500" height="500" allowfullscreen="allowfullscreen"></iframe><br><br><br>';
+				websiteImage.setAttribute("id", "paragraph2");
+
+			var canvasComment = document.createElement('div');
+				canvasComment.innerHTML = '<br>The canvas image below is a fractal pattern.<br>It was made using the template found here:<br><a href="http://rembound.com/articles/drawing-mandelbrot-fractals-with-html5-canvas-and-javascript">Drawing Mandelbrot Fractals With HTML5 Canvas And JavaScript</a><br><br><span style="font-size:85%">Click to zoom-in. CTRL + Click to zoom-out.</span>'
+				canvasComment.setAttribute("id", "paragraph3")
+
+			var canvasComment2 = document.createElement('div');
+				canvasComment2.innerHTML = '<br>I made this on my own.<br>It&#39;s similar to the one above<br>except this one took 10 times <br>the amount of work to create.</span>'
+				canvasComment2.setAttribute("id", "paragraph4")
+
+			var breakCommand = document.createElement('br');
+			var breakCommand2 = document.createElement('br');
+
+			canvasOne.parentNode.insertBefore(websiteImage, canvasOne);
+			canvasOne.parentNode.insertBefore(breakCommand2, canvasOne);
+			canvasOne.parentNode.insertBefore(breakCommand, canvasOne);
+			canvasOne.parentNode.insertBefore(canvasComment, canvasOne);
+			canvasOne.parentNode.insertBefore(breakCommand, canvasTwo);
+			canvasTwo.parentNode.insertBefore(canvasComment2, canvasTwo);
+			websiteImage.parentNode.insertBefore(hyperLinkText, websiteImage);
+	
+			var canvas = document.getElementById("canvasOne");
+			canvas.width = 600;
+			canvas.height = 600;
+			var context = canvas.getContext("2d");
+    
+		    // Width and height of the image
+		    var imagew = canvas.width;
+		    var imageh = canvas.height;
+		    
+		    // Image Data (RGBA)
+		    var imagedata = context.createImageData(imagew, imageh);
+		    
+		    // Pan and zoom parameters
+		    var offsetx = -imagew/2;
+		    var offsety = -imageh/2;
+		    var panx = -100;
+		    var pany = 0;
+		    var zoom = 150;
+		    
+		    // Palette array of 256 colors
+		    var palette = [];
+		    
+		    // The maximum number of iterations per pixel
+		    var maxiterations = 250;
+		    
+		    // Initialize the game
+		    function init() {
+		        // Add mouse events
+		        canvas.addEventListener("mousedown", onMouseDown);
+		        
+		        // Generate palette
+		        generatePalette();
+		        
+		        // Generate image
+		        generateImage();
+		    
+		        // Enter main loop
+		        main(0);
+		    }
+		    
+		    // Main loop
+		    function main(tframe) {
+		        // Request animation frames
+		        window.requestAnimationFrame(main);
+		        
+		        // Draw the generate image
+		        context.putImageData(imagedata, 0, 0);
+		    }
+		    
+		    // Generate palette
+		    function generatePalette() {
+		        // Calculate a gradient
+		        var roffset = 20;
+		        var goffset = 0;
+		        var boffset = 25;
+		        for (var i=0; i<256; i++) {
+		            palette[i] = { r:roffset, g:goffset, b:boffset};
+		            
+		            if (i < 64) {
+		                roffset += 3;
+		            } else if (i<128) {
+		                goffset += 3;
+		            } else if (i<64) {
+		                boffset += 3;
+		            }
+		        }
+		    }
+		    
+		    // Generate the fractal image
+		    function generateImage() {
+		        // Iterate over the pixels
+		        for (var y=0; y<imageh; y++) {
+		            for (var x=0; x<imagew; x++) {
+		                iterate(x, y, maxiterations);
+		            }
+		        }
+		    }
+
+		    // Calculate the color of a specific pixel
+		    function iterate(x, y, maxiterations) {
+		        // Convert the screen coordinate to a fractal coordinate
+		        var x0 = (x + offsetx + panx) / zoom;
+		        var y0 = (y + offsety + pany) / zoom;
+		        
+		        // Iteration variables
+		        var a = 0;
+		        var b = 0;
+		        var rx = 0;
+		        var ry = 0;
+		        
+		        // Iterate
+		        var iterations = 0;
+		        while (iterations < maxiterations && (rx * rx + ry * ry <= 4)) {
+		            rx = a * a - b * b + x0;
+		            ry = 2 * a * b + y0;
+		            
+		            // Next iteration
+		            a = rx;
+		            b = ry;
+		            iterations++;
+		        }
+		        
+		        // Get palette color based on the number of iterations
+		        var color;
+		        if (iterations == maxiterations) {
+		            color = { r:0, g:0, b:0}; // Black
+		        } else {
+		            var index = Math.floor((iterations / (maxiterations-1)) * 255);
+		            color = palette[index];
+		        }
+		        
+		        // Apply the color
+		        var pixelindex = (y * imagew + x) * 4;
+		        imagedata.data[pixelindex] = color.r;
+		        imagedata.data[pixelindex+1] = color.g;
+		        imagedata.data[pixelindex+2] = color.b;
+		        imagedata.data[pixelindex+3] = 255;
+		    }
+		    
+		    // Zoom the fractal
+		    function zoomFractal(x, y, factor, zoomin) {
+		        if (zoomin) {
+		            // Zoom in
+		            zoom *= factor;
+		            panx = factor * (x + offsetx + panx);
+		            pany = factor * (y + offsety + pany);
+		        } else {
+		            // Zoom out
+		            zoom /= factor;
+		            panx = (x + offsetx + panx) / factor;
+		            pany = (y + offsety + pany) / factor;
+		        }
+		    }
+		    
+		    // Mouse event handlers
+		    function onMouseDown(e) {
+		        var pos = getMousePos(canvas, e);
+		        
+		        // Zoom out with Control
+		        var zoomin = true;
+		        if (e.ctrlKey) {
+		            zoomin = false;
+		        }
+		        
+		        // Pan with Shift
+		        var zoomfactor = 2;
+		        if (e.shiftKey) {
+		            zoomfactor = 1;
+		        }
+		        
+		        // Zoom the fractal at the mouse position
+		        zoomFractal(pos.x, pos.y, zoomfactor, zoomin);
+		        
+		        // Generate a new image
+		        generateImage();
+		    }
+		    
+		    // Get the mouse position
+		    function getMousePos(canvas, e) {
+		        var rect = canvas.getBoundingClientRect();
+		        return {
+		            x: Math.round((e.clientX - rect.left)/(rect.right - rect.left)*canvas.width),
+		            y: Math.round((e.clientY - rect.top)/(rect.bottom - rect.top)*canvas.height)
+		        };
+		    }
+		    
+		    init();
+
+
+			  var canvasTwo = document.getElementById('canvasTwo');
+			  canvasTwo.height = 300;
+			  canvasTwo.width = 300;
+			  var context2 = canvasTwo.getContext('2d');
+			  var centerX = canvasTwo.width / 2;
+			  var centerY = canvasTwo.height / 2;
+			  var radius = 90;
+			  var eyeRadius = 15;
+			  var eyeXOffset = 35;
+			  var eyeYOffset = 30;
+			  
+			  // draw the yellow circle
+			  context2.beginPath();
+			  context2.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+			  context2.fillStyle = 'yellow';
+			  context2.fill();
+			  context2.lineWidth = 10;
+			  context2.strokeStyle = 'black';
+			  context2.stroke();
+			    
+			  // draw the eyes
+			  context2.beginPath();
+			  var eyeX = centerX - eyeXOffset;
+			  var eyeY = centerY - eyeXOffset;
+			  context2.arc(eyeX, eyeY, eyeRadius, 0, 2 * Math.PI, false);
+			  var eyeX = centerX + eyeXOffset;
+			  context2.arc(eyeX, eyeY, eyeRadius, 0, 2 * Math.PI, false);
+			  context2.fillStyle = 'black';
+			  context2.fill();
+			  
+			  // draw the mouth
+			  context2.beginPath();
+			  context2.arc(centerX, centerY, 50, 0, Math.PI, false);
+			  context2.stroke();
+
+
+		</script>
+	</body>
+</html>
+
