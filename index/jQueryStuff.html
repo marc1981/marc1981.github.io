@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Intro Assignment</title>  
+  <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+  <style type="text/css">
+    body { 
+      font-family: 'Righteous', cursive; 
+      background: #6393c1;
+      background: -moz-linear-gradient(left, #6393c1 0%, #cfe7fa 50%, #6393c1 100%);
+      background: -webkit-linear-gradient(left, #6393c1 0%,#cfe7fa 50%,#6393c1 100%);
+      background: linear-gradient(to right, #6393c1 0%,#cfe7fa 50%,#6393c1 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6393c1', endColorstr='#6393c1',GradientType=1 );
+    }
+
+    #mainDiv { width: 800px; margin: 0 auto; position: relative; }
+    button { margin: 0 0 10px 0; }
+
+    #imageDiv{
+      display: none;
+      margin: auto;
+      text-align: center;
+    }
+
+    #titleBlock{
+      text-decoration: underline;
+    }
+
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    
+    $(document).ready(function(){
+
+      $("#hide").click(function(){      
+          $("#funStuff").slideUp(500);
+          document.getElementById("imageDiv").style.display = "block";
+        });
+
+        $("#show").click(function(){      
+          $("#funStuff").slideDown(2500);
+          document.getElementById("imageDiv").style.display = "none";
+        });
+
+    });
+
+
+  </script>
+</head>
+
+<body>
+  <div id="mainDiv">
+    <h3>jQuery Intro Assignment</h3>
+    <div id="mainMenu">
+      <div id="buttonStuff">
+        <button id="hide">Hide</button>
+        <button id="show">Show</button>
+      </div>
+      <hr/>
+      <div id="funStuff">
+          <p>
+            <h2>Hat-trick (magic trick)</h2>
+            <h5><a href="https://en.wikipedia.org/wiki/Hat-trick_(magic_trick)">From Wikipedia, the free encylcopedia</a></h5>
+          </p>
+          <p>
+            The hat-trick is a classic magic trick where a performer will produce an object (traditionally a rabbit or a bouquet of flowers) out of an apparently empty top hat.
+          </p>
+          <hr/>
+          <p>
+            <h3 id="titleBlock">Method</h3>
+            <p>
+              In its simplest form, the trick works by placing the hat on a specially made table or chest. Both the hat, and the surface it is placed on, will have a hidden opening in them, through which an object stored in a compartment in the table or chest can be pulled. Alternatively, the performer can produce an item hidden in their sleeve using sleight of hand and misdirection. This eliminates the need to place the hat on a surface, and also allows the performer to give the hat to an audience member for inspection. However, producing a rabbit from a hat using nothing but sleight of hand is a much more difficult trick.
+            </p>
+            <p>
+            This trick is also traditionally performed for children, since it is a basic trick with basic props.
+            </p>
+            <p>
+            It is said that the earliest magician to pull a rabbit out of a hat was Louis Comte, in 1814, though this is also attributed to the much later John Henry Anderson.
+            </p>
+          </p>
+      </div>
+      <div id="imageDiv">
+
+        <img src="https://media3.giphy.com/media/12NUbkX6p4xOO4/giphy.gif" alt="Magic">
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
